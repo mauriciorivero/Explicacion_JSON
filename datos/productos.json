@@ -1,0 +1,77 @@
+{
+    "productos": [
+      {
+        "id": 1,
+        "nombre": "Smartwatch Pro X3",
+        "descripcion": "Reloj inteligente con monitor cardíaco, seguimiento de actividad física y notificaciones inteligentes. Resistente al agua hasta 50m.",
+        "precio": 129.99,
+        "imagen": "https://http2.mlstatic.com/D_NQ_NP_751606-MCO69342758015_052023-O.webp"
+      },
+      {
+        "id": 2,
+        "nombre": "Auriculares NoiseCancel 2.0",
+        "descripcion": "Auriculares inalámbricos con cancelación de ruido activa, 30 horas de batería y micrófono integrado de alta calidad.",
+        "precio": 89.95,
+        "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZciKayqctXpc404Pr7M1T0lpG2RrpxUodqQ&s"
+      },
+      {
+        "id": 3,
+        "nombre": "Tablet UltraSlim 10",
+        "descripcion": "Tablet de 10 pulgadas con pantalla Full HD, 128GB de almacenamiento y procesador octa-core para máximo rendimiento.",
+        "precio": 249.50,
+        "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3CFmVvH4x6lf-zWKcV6F9dVFtWux6r7R8pg&s"
+      },
+      {
+        "id": 4,
+        "nombre": "Cámara DSLR 4K",
+        "descripcion": "Cámara digital profesional con sensor de 24MP, grabación de video en 4K y conectividad WiFi para transferencia instantánea.",
+        "precio": 599.99,
+        "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvb3QR-VolsoaG1mxtPn9fj5QerD0tQGCDIA&s"
+      },
+      {
+        "id": 5,
+        "nombre": "Altavoz Bluetooth Aqua",
+        "descripcion": "Altavoz portátil resistente al agua con 20 horas de reproducción y sonido envolvente de 360 grados.",
+        "precio": 79.99,
+        "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRDbTofyUyXq7fEm_oi_g3WUIXJkmB33BUFA&s"
+      },
+
+      {
+        "id": 6,
+        "nombre": "Smartwatch Pro X3",
+        "descripcion": "Reloj inteligente con monitor cardíaco, seguimiento de actividad física y notificaciones inteligentes. Resistente al agua hasta 50m.",
+        "precio": 129.99,
+        "imagen": "https://http2.mlstatic.com/D_NQ_NP_751606-MCO69342758015_052023-O.webp"
+      },
+      {
+        "id": 7,
+        "nombre": "Auriculares NoiseCancel 2.0",
+        "descripcion": "Auriculares inalámbricos con cancelación de ruido activa, 30 horas de batería y micrófono integrado de alta calidad.",
+        "precio": 89.95,
+        "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZciKayqctXpc404Pr7M1T0lpG2RrpxUodqQ&s"
+      },
+      {
+        "id": 8,
+        "nombre": "Tablet UltraSlim 10",
+        "descripcion": "Tablet de 10 pulgadas con pantalla Full HD, 128GB de almacenamiento y procesador octa-core para máximo rendimiento.",
+        "precio": 249.50,
+        "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3CFmVvH4x6lf-zWKcV6F9dVFtWux6r7R8pg&s"
+      },
+      {
+        "id": 9,
+        "nombre": "Cámara DSLR 4K",
+        "descripcion": "Cámara digital profesional con sensor de 24MP, grabación de video en 4K y conectividad WiFi para transferencia instantánea.",
+        "precio": 599.99,
+        "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvb3QR-VolsoaG1mxtPn9fj5QerD0tQGCDIA&s"
+      },
+      {
+        "id": 10,
+        "nombre": "Altavoz Bluetooth Aqua",
+        "descripcion": "Altavoz portátil resistente al agua con 20 horas de reproducción y sonido envolvente de 360 grados.",
+        "precio": 79.99,
+        "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRDbTofyUyXq7fEm_oi_g3WUIXJkmB33BUFA&s"
+      }
+
+      
+    ]
+  }
