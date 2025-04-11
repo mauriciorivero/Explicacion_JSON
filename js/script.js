@@ -140,6 +140,27 @@ async function guardarNuevoProducto(producto) {
         // Guardar en localStorage para persistencia en modo desarrollo
         localStorage.setItem('productosData', JSON.stringify({productos: productos}));
         
+        // Guardar en el archivo JSON
+        try {
+            const response = await fetch('datos/productos.json', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({productos: productos})
+            });
+            
+            if (!response.ok) {
+                console.warn('No se pudo guardar en el archivo JSON. Código:', response.status);
+                console.log('El producto solo se guardó en localStorage');
+            } else {
+                console.log('Producto guardado exitosamente en el archivo JSON');
+            }
+        } catch (fetchError) {
+            console.warn('Error al intentar guardar en el archivo JSON:', fetchError);
+            console.log('El producto solo se guardó en localStorage');
+        }
+        
         console.log('Producto guardado exitosamente en localStorage');
         
         // Actualizar la visualización de productos en la interfaz
