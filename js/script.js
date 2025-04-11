@@ -109,9 +109,21 @@ async function guardarNuevoProducto(producto) {
         const productos = await cargarProductos();
         
         // Asignar un ID al nuevo producto (el siguiente al máximo actual)
-        const nuevoId = productos.length > 0 
-            ? Math.max(...productos.map(p => p.id)) + 1 
-            : 1;
+        let nuevoId = 1; // Valor por defecto si no hay productos
+        
+        // Si hay productos existentes, buscar el ID más alto y sumarle 1
+        if (productos.length > 0) {
+            // Crear un array con solo los IDs
+            let todosLosIds = productos.map(function(p) {
+                return p.id;
+            });
+            
+            // Encontrar el ID más alto
+            let idMasAlto = Math.max(...todosLosIds);
+            
+            // El nuevo ID será el más alto + 1
+            nuevoId = idMasAlto + 1;
+        }
         
         // Crear el nuevo producto con el ID asignado
         const nuevoProducto = {
