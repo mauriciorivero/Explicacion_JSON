@@ -75,3 +75,102 @@ h1 {
         max-width: 350px;
     }
 }
+
+/* Estilos para la navegación */
+nav {
+    background-color: #333;
+    padding: 15px 0;
+    margin-bottom: 30px;
+    border-radius: 8px;
+}
+
+nav div {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: center;
+    gap: 30px;
+}
+
+.nav-link {
+    color: white;
+    cursor: pointer;
+    padding: 5px 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.nav-link:hover {
+    background-color: #555;
+}
+
+/* Estilos para las secciones */
+.seccion-activa {
+    display: block;
+}
+
+.seccion-oculta {
+    display: none;
+}
+
+/* Estilos para el formulario */
+.formulario-producto {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.campo-formulario {
+    margin-bottom: 20px;
+}
+
+.campo-formulario label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.campo-formulario input,
+.campo-formulario textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.campo-formulario textarea {
+    resize: vertical;
+}
+
+.texto-ayuda {
+    font-size: 12px;
+    color: #666;
+    margin-top: 5px;
+}
+
+.boton-guardar {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.boton-guardar:hover {
+    background-color: #45a049;
+}
+
+@media (max-width: 768px) {
+    .formulario-producto {
+        padding: 20px;
+    }
+}

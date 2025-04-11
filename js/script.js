@@ -1,7 +1,13 @@
 // Función para cargar los datos del JSON
 async function cargarProductos() {
     try {
-        // Cargamos el JSON desde la carpeta /datos
+        // Verificar si hay datos en localStorage primero
+        const datosLocalStorage = localStorage.getItem('productosData');
+        if (datosLocalStorage) {
+            return JSON.parse(datosLocalStorage).productos;
+        }
+        
+        // Si no hay datos en localStorage, intentamos cargar desde el archivo JSON
         const respuesta = await fetch('datos/productos.json');
         
         // Verificamos si la respuesta es correcta
@@ -11,6 +17,10 @@ async function cargarProductos() {
         
         // Convertimos la respuesta a JSON
         const datos = await respuesta.json();
+        
+        // Guardamos en localStorage para futuras referencias
+        localStorage.setItem('productosData', JSON.stringify(datos));
+        
         return datos.productos;
     } catch (error) {
         console.error('Error al cargar los productos:', error);
@@ -85,6 +95,53 @@ async function mostrarProductos() {
         const cardProducto = crearCardProducto(producto);
         contenedorProductos.appendChild(cardProducto);
     });
+}
+
+// Función para guardar un nuevo producto en el JSON
+async function guardarNuevoProducto(producto) {
+    try {
+        // Validar que el producto tenga los campos requeridos
+        if (!producto.nombre || !producto.descripcion || !producto.precio) {
+            throw new Error('El producto debe tener nombre, descripción y precio');
+        }
+        
+        // Cargar los productos actuales
+        const productos = await cargarProductos();
+        
+        // Asignar un ID al nuevo producto (el siguiente al máximo actual)
+        const nuevoId = productos.length > 0 
+            ? Math.max(...productos.map(p => p.id)) + 1 
+            : 1;
+        
+        // Crear el nuevo producto con el ID asignado
+        const nuevoProducto = {
+            id: nuevoId,
+            nombre: producto.nombre,
+            descripcion: producto.descripcion,
+            precio: parseFloat(producto.precio),
+            imagen: producto.imagen || 'https://via.placeholder.com/300x200?text=Nuevo+Producto'
+        };
+        
+        // Agregar el producto al array
+        productos.push(nuevoProducto);
+        
+        // Guardar en localStorage para persistencia en modo desarrollo
+        localStorage.setItem('productosData', JSON.stringify({productos: productos}));
+        
+        console.log('Producto guardado exitosamente en localStorage');
+        
+        // Actualizar la visualización de productos en la interfaz
+        // Creamos la nueva card y la añadimos al contenedor
+        const contenedorProductos = document.getElementById('contenedor-productos');
+        const cardProducto = crearCardProducto(nuevoProducto);
+        contenedorProductos.appendChild(cardProducto);
+        
+        return true;
+    } catch (error) {
+        console.error('Error al guardar el producto:', error);
+        alert('No se pudo guardar el producto. ' + error.message);
+        return false;
+    }
 }
 
 // Iniciar la carga de productos cuando el DOM esté listo

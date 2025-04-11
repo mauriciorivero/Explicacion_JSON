@@ -10,16 +10,99 @@
     <header>
         <nav>
             <div>
-                <h2>Productos</h2>
-                <h2>Agregar Producto</h2>
+                <h2 id="mostrar-catalogo" class="nav-link">Productos</h2>
+                <h2 id="mostrar-formulario" class="nav-link">Agregar Producto</h2>
             </div>
         </nav>
     </header>
-    <h1>Catálogo de Productos</h1>
-    <div class="contenedor-productos" id="contenedor-productos">
-        <!-- Aquí se insertarán dinámicamente las cards de productos -->
-    </div>
+    
+    <section id="seccion-catalogo" class="seccion-activa">
+        <h1>Catálogo de Productos</h1>
+        <div class="contenedor-productos" id="contenedor-productos">
+            <!-- Aquí se insertarán dinámicamente las cards de productos -->
+        </div>
+    </section>
+    
+    <section id="seccion-formulario" class="seccion-oculta">
+        <h1>Agregar Nuevo Producto</h1>
+        <form id="formulario-producto" class="formulario-producto">
+            <div class="campo-formulario">
+                <label for="nombre">Nombre del producto*:</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+            
+            <div class="campo-formulario">
+                <label for="descripcion">Descripción*:</label>
+                <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
+            </div>
+            
+            <div class="campo-formulario">
+                <label for="precio">Precio*:</label>
+                <input type="number" id="precio" name="precio" step="0.01" min="0" required>
+            </div>
+            
+            <div class="campo-formulario">
+                <label for="imagen">URL de la imagen:</label>
+                <input type="url" id="imagen" name="imagen" placeholder="https://ejemplo.com/imagen.jpg">
+                <p class="texto-ayuda">Si no se proporciona, se usará una imagen por defecto</p>
+            </div>
+            
+            <div class="campo-formulario">
+                <button type="submit" class="boton-guardar">Guardar Producto</button>
+            </div>
+        </form>
+    </section>
 
     <script src="js/script.js"></script>
+    <script>
+        // Script para manejar la navegación y el formulario
+        document.addEventListener('DOMContentLoaded', function() {
+            const seccionCatalogo = document.getElementById('seccion-catalogo');
+            const seccionFormulario = document.getElementById('seccion-formulario');
+            const mostrarCatalogo = document.getElementById('mostrar-catalogo');
+            const mostrarFormulario = document.getElementById('mostrar-formulario');
+            const formularioProducto = document.getElementById('formulario-producto');
+            
+            // Función para cambiar entre secciones
+            mostrarCatalogo.addEventListener('click', function() {
+                seccionCatalogo.classList.add('seccion-activa');
+                seccionCatalogo.classList.remove('seccion-oculta');
+                seccionFormulario.classList.add('seccion-oculta');
+                seccionFormulario.classList.remove('seccion-activa');
+            });
+            
+            mostrarFormulario.addEventListener('click', function() {
+                seccionFormulario.classList.add('seccion-activa');
+                seccionFormulario.classList.remove('seccion-oculta');
+                seccionCatalogo.classList.add('seccion-oculta');
+                seccionCatalogo.classList.remove('seccion-activa');
+            });
+            
+            // Manejar el envío del formulario
+            formularioProducto.addEventListener('submit', async function(event) {
+                event.preventDefault();
+                
+                const nuevoProducto = {
+                    nombre: document.getElementById('nombre').value,
+                    descripcion: document.getElementById('descripcion').value,
+                    precio: document.getElementById('precio').value,
+                    imagen: document.getElementById('imagen').value
+                };
+                
+                const resultado = await guardarNuevoProducto(nuevoProducto);
+                
+                if (resultado) {
+                    // Limpiar el formulario
+                    formularioProducto.reset();
+                    
+                    // Mostrar mensaje de éxito
+                    alert('Producto guardado con éxito');
+                    
+                    // Cambiar a la vista de catálogo
+                    mostrarCatalogo.click();
+                }
+            });
+        });
+    </script>
 </body>
 </html>

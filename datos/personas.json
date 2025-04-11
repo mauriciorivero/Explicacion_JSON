@@ -1,0 +1,17 @@
+{
+    "personas": [
+        {
+            "numero_cedula": 234567890,
+            "nombre": "Mauricio",
+            "apellido": "Rivero",
+            "fecha_nacimiento": "2024-01-02"
+          },
+          {
+            "numero_cedula": 9876543,
+            "nombre": "Ada",
+            "apellido": "Rivero",
+            "fecha_nacimiento": "2024-03-08"
+          },
+
+    ]
+}
