@@ -6,7 +6,8 @@
 }
 
 body {
-    background-color: #f5f5f5;
+    background-image: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDF8fGZvb2R8ZW58MHx8fHwxNjg3NTY5NzA1&ixlib=rb-4.0.3&q=80&w=1080');
+    background-size: cover;
     padding: 20px;
 }
 
